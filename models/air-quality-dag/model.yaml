@@ -1,0 +1,23 @@
+slug: air-quality-dag
+status: draft
+title: Traffic restrictions and respiratory health
+domain: Environment / health
+formalisms: [dag]
+question: >-
+  How much do traffic restrictions improve respiratory health in the city?
+summary: >-
+  A causal DAG with confounders made explicit, then an effect estimate on data with the backdoor set the DAG demands.
+report:
+  pack: publication
+  title: "Traffic restrictions and respiratory health"
+explorer:
+  model_type: dag
+  title: "Traffic restrictions and respiratory health"
+  intro: ""
+story:
+  name: "For the transport committee"
+  audience: "The city transport committee weighing a low-emission zone."
+  purpose: "Show why a naive before/after comparison misleads, and what the adjusted estimate says."
+  voice: conversational
+  depth: standard
+  steer: "Contrast the unadjusted and adjusted estimates; the DAG is the hero."

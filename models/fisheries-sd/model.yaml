@@ -1,0 +1,23 @@
+slug: fisheries-sd
+status: draft
+title: A fishery under quota pressure
+domain: Environment
+formalisms: [sd]
+question: >-
+  Can the fishery stay sustainable under the current quota regime?
+summary: >-
+  A stock-and-flow model of a fishery — biomass, recruitment, harvest — with quota scenarios and a Monte Carlo over uncertain growth.
+report:
+  pack: publication
+  title: "A fishery under quota pressure"
+explorer:
+  model_type: sd
+  title: "A fishery under quota pressure"
+  intro: ""
+story:
+  name: "For the fisheries council"
+  audience: "The regional fisheries council setting next year's quota."
+  purpose: "Show what the current quota does to the stock over twenty years, and which uncertainty matters most."
+  voice: conversational
+  depth: standard
+  steer: "Open on the biomass trajectory under the status quo, then the quota comparison."

@@ -1,0 +1,40 @@
+# EV subsidy in the regional transport system — fuzzy cognitive map stub (weights TODO in build.py).
+context:
+  background: The regional council is debating an EV purchase subsidy; departments gave conflicting single-issue advice.
+  audience: Regional councillors.
+  intuition: The subsidy cuts tailpipe emissions; effects on congestion and household budgets are contested.
+factors:
+  - label: EV subsidy
+  - label: EV adoption
+  - label: Tailpipe emissions
+  - label: Air quality
+  - label: Respiratory illness
+  - label: Congestion
+  - label: Household transport costs
+  - label: Electricity demand
+links:
+  - {from: EV subsidy, to: EV adoption, reason: A lower purchase price speeds uptake.}
+  - {from: EV adoption, to: Tailpipe emissions, reason: Each EV replaces a combustion vehicle.}
+  - {from: Tailpipe emissions, to: Air quality, reason: Fewer emissions improve urban air.}
+  - {from: Air quality, to: Respiratory illness, reason: Cleaner air reduces respiratory disease.}
+  - {from: EV adoption, to: Congestion, reason: Subsidised vehicles add to total vehicle stock.}
+  - {from: EV adoption, to: Household transport costs, reason: Running costs fall but purchase prices bind.}
+  - {from: EV adoption, to: Electricity demand, reason: Charging adds to peak load.}
+sources:
+  - key: kosko1986
+    title: Fuzzy Cognitive Maps
+    authors: ["Kosko, B."]
+    year: 1986
+    doi: 10.1016/S0020-7373(86)80040-2
+    extract: >-
+      Fuzzy cognitive maps represent causal concepts as nodes and signed,
+      weighted edges as causal influences, and combine them through
+      matrix-based inference to a fixed point or limit cycle.
+  - key: gray2015
+    title: "Participatory fuzzy cognitive mapping for social-ecological systems"
+    authors: ["Gray, S.", "et al."]
+    year: 2015
+    url: https://www.ecologyandsociety.org/vol20/iss2/art11/
+    extract: >-
+      Stakeholder-elicited fuzzy cognitive maps support scenario exploration
+      in environmental management when quantitative data are scarce.

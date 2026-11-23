@@ -1,0 +1,23 @@
+slug: policy-fcm
+status: draft
+title: An EV subsidy in the regional transport system
+domain: Policy
+formalisms: [fcm]
+question: >-
+  What does an EV subsidy do to emissions, congestion and household costs across the region?
+summary: >-
+  A fuzzy cognitive map elicited from stakeholders — clamp the subsidy and watch the system settle somewhere new.
+report:
+  pack: publication
+  title: "An EV subsidy in the regional transport system"
+explorer:
+  model_type: fcm
+  title: "An EV subsidy in the regional transport system"
+  intro: ""
+story:
+  name: "For the regional council"
+  audience: "Regional councillors deciding on the subsidy package."
+  purpose: "Show the knock-on effects the single-issue briefing missed."
+  voice: conversational
+  depth: standard
+  steer: "Show the baseline steady state first, then the clamped run."

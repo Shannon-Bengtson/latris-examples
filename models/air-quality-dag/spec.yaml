@@ -1,0 +1,41 @@
+# Traffic restrictions and respiratory health — causal DAG stub (estimation TODO in build.py).
+context:
+  background: The city is weighing a low-emission zone; the evidence is observational, so confounding is the battleground.
+  audience: The city transport committee.
+  intuition: Cleaner air should help, but the size of the effect is disputed.
+factors:
+  - label: Traffic restrictions
+  - label: Vehicle emissions
+  - label: Air pollution
+  - label: Respiratory hospital admissions
+  - label: Socioeconomic deprivation
+  - label: Smoking prevalence
+  - label: Weather and season
+links:
+  - {from: Traffic restrictions, to: Vehicle emissions, reason: Restrictions remove the dirtiest vehicles from the road.}
+  - {from: Vehicle emissions, to: Air pollution, reason: Tailpipe emissions drive roadside concentrations.}
+  - {from: Air pollution, to: Respiratory hospital admissions, reason: Pollutant exposure triggers exacerbations.}
+  - {from: Socioeconomic deprivation, to: Respiratory hospital admissions, reason: Deprivation raises baseline respiratory risk.}
+  - {from: Socioeconomic deprivation, to: Traffic restrictions, reason: Zone boundaries and enforcement differ by area wealth.}
+  - {from: Smoking prevalence, to: Respiratory hospital admissions, reason: Smoking is the dominant respiratory risk factor.}
+  - {from: Weather and season, to: Air pollution, reason: Inversions trap pollutants.}
+  - {from: Weather and season, to: Respiratory hospital admissions, reason: Winter peaks in admissions.}
+sources:
+  - key: who2021
+    title: WHO Global Air Quality Guidelines 2021
+    authors: ["World Health Organization"]
+    year: 2021
+    url: https://www.who.int/publications/i/item/9789240034228
+    extract: >-
+      The 2021 guidelines tighten recommended PM2.5 and NO2 limits based on
+      evidence linking long-term exposure to cardiovascular and respiratory
+      mortality.
+  - key: hei2010
+    title: Traffic-Related Air Pollution — A Critical Review of the Literature
+    authors: ["Health Effects Institute"]
+    year: 2010
+    url: https://www.healtheffects.org/publication/traffic-related-air-pollution-critical-review-literature-emissions-exposure-and-health
+    extract: >-
+      Living near busy roads is associated with respiratory symptoms and
+      reduced lung function in children, though exposure assessment remains
+      the main source of uncertainty.

@@ -1,0 +1,39 @@
+# Fishery under quota pressure — system dynamics stub (structure; dynamics TODO in build.py).
+context:
+  background: The regional council sets the total allowable catch each year; the stock has declined twice in the last decade.
+  audience: The regional fisheries council.
+  intuition: The current quota is probably too high for a bad recruitment year.
+factors:
+  - label: Fish biomass
+  - label: Recruitment
+  - label: Natural mortality
+  - label: Harvest
+  - label: Quota
+  - label: Fishing effort
+  - label: Fleet profitability
+links:
+  - {from: Fish biomass, to: Recruitment, reason: Larger spawning stock produces more recruits.}
+  - {from: Fish biomass, to: Harvest, reason: Catch per unit effort rises with stock size.}
+  - {from: Quota, to: Harvest, reason: The quota caps the legal harvest.}
+  - {from: Quota, to: Fishing effort, reason: A generous quota sustains more vessels.}
+  - {from: Harvest, to: Fleet profitability, reason: Landings drive vessel revenue.}
+  - {from: Fleet profitability, to: Fishing effort, reason: Profits attract effort.}
+sources:
+  - key: fao2024
+    title: The State of World Fisheries and Aquaculture 2024
+    authors: ["FAO"]
+    year: 2024
+    url: https://www.fao.org/publications/sofia
+    extract: >-
+      The share of stocks fished within biologically sustainable levels has
+      continued to decline; effective management remains the strongest
+      predictor of stock recovery.
+  - key: hilborn1992
+    title: Quantitative Fisheries Stock Assessment
+    authors: ["Hilborn, R.", "Walters, C.J."]
+    year: 1992
+    doi: 10.1007/978-1-4615-3598-0
+    extract: >-
+      Surplus-production and age-structured models relate recruitment,
+      growth and mortality to fishing pressure; uncertainty in recruitment
+      dominates long-run projections.
