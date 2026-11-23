@@ -13,7 +13,7 @@ For each ``models/<slug>/`` this pipeline:
    - ``dist/<slug>/story.html``    — the scrollytelling story (story_html)
 
 5. writes ``dist/gallery.json`` and copies ``site/index.html`` to
-   ``dist/index.html`` — the gallery page latris-site serves.
+   ``dist/index.html`` (a redirect: latris.app/examples/ renders gallery.json).
 
 Stories are AI-written (plan -> approve -> write). Without a provider key the
 story step is skipped with a warning; set GEMINI_API_KEY to enable it.
