@@ -1,0 +1,4 @@
+# The latris version the gallery is built against. Bump after a release, rerun the Action.
+# [quant] brings the numeric engines (pgmpy, numpy, scipy) the analyses need.
+latris[quant]==0.14.2
+pyyaml>=6
