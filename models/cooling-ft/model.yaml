@@ -1,0 +1,23 @@
+slug: cooling-ft
+status: draft
+title: Loss of cooling at the data centre
+domain: Engineering
+formalisms: [fault_tree]
+question: >-
+  How likely is a loss of cooling this year, and what drives it?
+summary: >-
+  A fault tree with a vote gate on the power supplies — cut sets, importance rankings, and Monte Carlo over the uncertain probabilities.
+report:
+  pack: publication
+  title: "Loss of cooling at the data centre"
+explorer:
+  model_type: fault_tree
+  title: "Loss of cooling at the data centre"
+  intro: ""
+story:
+  name: "For the operations director"
+  audience: "The data centre's operations director, reviewing resilience spend."
+  purpose: "Show the top-event probability, the dominant cut sets, and which unverified number drives the spread."
+  voice: conversational
+  depth: standard
+  steer: "The shared power supply defeating the redundant pumps is the story."

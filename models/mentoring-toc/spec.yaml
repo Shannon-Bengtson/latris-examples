@@ -1,0 +1,52 @@
+context:
+  background: The foundation funds a school mentoring programme; renewal depends on whether the theory
+    holds up.
+  audience: The foundation's board.
+  intuition: Mentors seem to matter for attendance; the link to completion is unproven.
+factors:
+- label: Mentor training
+- label: Weekly mentoring sessions
+- label: Students mentored
+- label: School attendance
+- label: Grades
+- label: School completion
+links:
+- from: Mentor training
+  to: Weekly mentoring sessions
+  reason: Trained mentors deliver consistent sessions.
+- from: Weekly mentoring sessions
+  to: Students mentored
+  reason: Sessions are the programme's output.
+- from: Students mentored
+  to: School attendance
+  reason: A trusted adult expecting you at school gets you there.
+- from: School attendance
+  to: Grades
+  reason: Attendance is a precondition for learning.
+- from: Grades
+  to: School completion
+  reason: Passing grades keep students enrolled.
+sources:
+- key: dubois2011
+  title: How Effective Are Mentoring Programs for Youth? A Meta-Analytic Review
+  authors:
+  - DuBois, D.L.
+  - Portillo, N.
+  - Rhodes, J.E.
+  - et al.
+  year: 2011
+  doi: 10.1037/a0022534
+  extract: Across 73 evaluations, mentoring programs showed a small but significant average benefit for
+    youth outcomes, with stronger effects when practices such as mentor training and structured activities
+    were used.
+- key: beachpedersen2013
+  title: 'Process-Tracing Methods: Foundations and Guidelines'
+  authors:
+  - Beach, D.
+  - Pedersen, R.B.
+  year: 2013
+- key: weiss1995
+  title: 'Nothing as Practical as Good Theory: Theory-Based Evaluation'
+  authors:
+  - Weiss, C.H.
+  year: 1995

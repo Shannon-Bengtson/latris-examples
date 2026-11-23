@@ -1,0 +1,23 @@
+slug: launch-dt
+status: draft
+title: Launch, license, or do nothing
+domain: Business
+formalisms: [decision_tree]
+question: >-
+  Should we launch the product ourselves, license it, or do nothing?
+summary: >-
+  A decision tree with the value of knowing demand before choosing — and the probability at which the answer flips.
+report:
+  pack: publication
+  title: "Launch, license, or do nothing"
+explorer:
+  model_type: decision_tree
+  title: "Launch, license, or do nothing"
+  intro: ""
+story:
+  name: "For the investment committee"
+  audience: "The investment committee deciding the product's fate."
+  purpose: "Show the expected values, what perfect information would be worth, and how shaky the choice is."
+  voice: conversational
+  depth: standard
+  steer: "The EVPI is the headline: it prices the market research they're debating."

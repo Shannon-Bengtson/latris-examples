@@ -1,0 +1,22 @@
+context:
+  background: The product works in trials; the committee must commit to launch, license, or shelve by
+    quarter end.
+  audience: The investment committee.
+  intuition: Licensing feels safe but leaves most of the upside behind.
+factors:
+- label: Strategy
+- label: Demand if launched
+- label: Demand if licensed
+- label: Launched, high demand
+- label: Launched, low demand
+- label: Licensed, high demand
+- label: Licensed, low demand
+- label: Do nothing
+links: []
+sources:
+- key: clemen2013
+  title: Making Hard Decisions with DecisionTools
+  authors:
+  - Clemen, R.T.
+  - Reilly, T.
+  year: 2013

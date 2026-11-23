@@ -1,0 +1,23 @@
+slug: mentoring-toc
+status: draft
+title: Does mentoring raise school completion?
+domain: Development
+formalisms: [theory_of_change]
+question: >-
+  Does the mentoring programme raise school completion, and how would we know?
+summary: >-
+  A theory of change with process tracing — each link's posterior, the tests that matter, and an impact estimate on register data.
+report:
+  pack: publication
+  title: "Does mentoring raise school completion?"
+explorer:
+  model_type: theory_of_change
+  title: "Does mentoring raise school completion?"
+  intro: ""
+story:
+  name: "For the foundation board"
+  audience: "The foundation's board, deciding whether to renew the grant."
+  purpose: "Show which links in the theory hold, which are unproven, and what the attendance data says."
+  voice: conversational
+  depth: standard
+  steer: "Trace the weakest link first, then what the impact estimate adds."

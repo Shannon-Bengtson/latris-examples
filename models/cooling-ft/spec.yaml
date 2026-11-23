@@ -1,0 +1,37 @@
+# Loss of cooling at the data centre — fault tree stub (gates and probabilities TODO in build.py).
+context:
+  background: Uptime targets are contractual; the operations director is reviewing resilience spend for next year.
+  audience: The data centre's operations director.
+  intuition: The redundant pumps feel safe; nobody has priced the shared power supply.
+factors:
+  - label: Loss of cooling
+  - label: Both pumps fail
+  - label: Pump A fails
+  - label: Pump B fails
+  - label: Power lost
+  - label: Pump A mechanical failure
+  - label: Pump B mechanical failure
+  - label: Supply 1 fails
+  - label: Supply 2 fails
+  - label: Supply 3 fails
+  - label: Control fault
+links: []
+sources:
+  - key: nasa2002
+    title: Fault Tree Handbook with Aerospace Applications
+    authors: ["NASA"]
+    year: 2002
+    url: https://ntrs.nasa.gov/citations/20020116075
+    extract: >-
+      A fault tree decomposes a top event through AND and OR gates to basic
+      events; minimal cut sets identify the combinations that defeat
+      redundancy, and importance measures rank contributors to the
+      top-event probability.
+  - key: iec61025
+    title: IEC 61025 — Fault Tree Analysis
+    authors: ["International Electrotechnical Commission"]
+    year: 2006
+    url: https://webstore.iec.ch/publication/4311
+    extract: >-
+      The standard defines fault tree symbols, gates including voting
+      (k-out-of-n) gates, and requirements for quantitative evaluation.
