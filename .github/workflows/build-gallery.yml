@@ -40,10 +40,12 @@ jobs:
         env:
           GALLERY_PAT: ${{ secrets.GALLERY_PAT }}
         run: |
-          git clone --depth 1 "https://x-access-token:${GALLERY_PAT}@github.com/Shannon-Bengtson/latris-site.git" site
-          mkdir -p site/examples/gallery
-          rsync -a --delete dist/ site/examples/gallery/
-          cd site
+          # Clone outside the checkout: this repo has its own site/ folder.
+          SITE="$RUNNER_TEMP/latris-site"
+          git clone --depth 1 "https://x-access-token:${GALLERY_PAT}@github.com/Shannon-Bengtson/latris-site.git" "$SITE"
+          mkdir -p "$SITE/examples/gallery"
+          rsync -a --delete dist/ "$SITE/examples/gallery/"
+          cd "$SITE"
           git config user.name "latris-examples bot"
           git config user.email "examples@latris.app"
           git add examples/gallery
