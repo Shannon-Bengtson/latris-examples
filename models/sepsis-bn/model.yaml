@@ -1,0 +1,29 @@
+slug: sepsis-bn
+status: live
+title: Sepsis risk on the ward
+domain: Health
+formalisms: [bn]
+difficulty: starter
+featured: true
+question: >-
+  How likely is a deteriorating ward patient to develop sepsis, and which
+  observations change that most?
+summary: >-
+  A Bayesian network over sepsis risk. Condition on what you've observed —
+  a rising SOFA score, a high lactate — and watch the posteriors move.
+report:
+  pack: publication
+  title: "Sepsis risk on the ward"
+explorer:
+  model_type: bn
+  title: Will this patient develop sepsis?
+  intro: >-
+    Click the observations you've made — suspected infection, a rising SOFA
+    score, a high lactate — and watch the chance of sepsis move.
+story:
+  name: For the governance committee
+  audience: The hospital's clinical governance committee, deciding whether to fund a sepsis screening pathway.
+  purpose: Show how a small set of bedside observations changes the odds of sepsis, and where the evidence sits.
+  voice: conversational
+  depth: standard
+  steer: Lead with the diagnostic query (SOFA and lactate observed), then the evidence behind the tables.

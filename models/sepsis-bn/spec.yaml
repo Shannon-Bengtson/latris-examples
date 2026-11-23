@@ -1,0 +1,77 @@
+# Sepsis risk — a Bayesian network over a deteriorating ward patient.
+# Structure plausible and cited; probabilities illustrative of the cited literature.
+context:
+  background: >-
+    A 600-bed hospital is deciding whether to fund an automated sepsis
+    screening pathway on general wards. Early recognition drives outcomes;
+    most sepsis starts on the ward, not in ICU.
+  audience: The hospital's clinical governance committee.
+  intuition: A rising SOFA score and a high lactate together should flag most cases early.
+factors:
+  - label: Age over 65
+    description: Whether the patient is over 65 years old.
+  - label: Immunosuppression
+    description: Whether the patient is immunosuppressed (chemotherapy, steroids, transplant).
+  - label: Suspected infection
+    description: Whether the treating team suspects an infection.
+  - label: Sepsis
+    description: Life-threatening organ dysfunction caused by a dysregulated host response to infection (Sepsis-3).
+  - label: Rising SOFA score
+    description: An increase of 2 or more SOFA points, the Sepsis-3 marker of organ dysfunction.
+  - label: Elevated lactate
+    description: Serum lactate above 2 mmol/L, a marker of tissue hypoperfusion.
+links:
+  - from: Age over 65
+    to: Suspected infection
+    reason: Older patients present with infection more often.
+  - from: Immunosuppression
+    to: Suspected infection
+    reason: Immunosuppressed patients acquire infections more readily.
+  - from: Suspected infection
+    to: Sepsis
+    reason: Sepsis is organ dysfunction complicating infection.
+    sources: [singer2016]
+  - from: Immunosuppression
+    to: Sepsis
+    reason: Immunosuppression raises the chance infection becomes sepsis.
+    sources: [evans2021]
+  - from: Sepsis
+    to: Rising SOFA score
+    reason: Organ dysfunction shows as a rising SOFA score.
+    sources: [seymour2016]
+  - from: Sepsis
+    to: Elevated lactate
+    reason: Hypoperfusion in sepsis raises serum lactate.
+    sources: [evans2021]
+sources:
+  - key: singer2016
+    title: The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3)
+    authors: ["Singer, M.", "Deutschman, C.S.", "Seymour, C.W.", "et al."]
+    year: 2016
+    doi: 10.1001/jama.2016.0287
+    url: https://jamanetwork.com/journals/jama/fullarticle/2492881
+    extract: >-
+      Sepsis is defined as life-threatening organ dysfunction caused by a
+      dysregulated host response to infection. Organ dysfunction can be
+      identified as an acute change in total SOFA score of 2 points or more.
+  - key: evans2021
+    title: "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021"
+    authors: ["Evans, L.", "Rhodes, A.", "Alhazzani, W.", "et al."]
+    year: 2021
+    doi: 10.1007/s00134-021-06506-y
+    url: https://link.springer.com/article/10.1007/s00134-021-06506-y
+    extract: >-
+      The guidelines recommend measuring serum lactate in patients with
+      suspected sepsis and use lactate above 2 mmol/L as a marker of
+      hypoperfusion warranting early resuscitation. Early recognition and
+      treatment are emphasised throughout.
+  - key: seymour2016
+    title: Assessment of Clinical Criteria for Sepsis (the SOFA derivation cohort)
+    authors: ["Seymour, C.W.", "Liu, V.X.", "Iwashyna, T.J.", "et al."]
+    year: 2016
+    doi: 10.1001/jama.2016.0288
+    url: https://jamanetwork.com/journals/jama/fullarticle/2492875
+    extract: >-
+      Among patients with suspected infection, an increase in SOFA score of
+      2 or more points identified organ dysfunction and was associated with
+      substantially higher in-hospital mortality.
