@@ -13,8 +13,14 @@ factors:
   - label: Weather and season
 links:
   - {from: Traffic restrictions, to: Vehicle emissions, reason: Restrictions remove the dirtiest vehicles from the road.}
-  - {from: Vehicle emissions, to: Air pollution, reason: Tailpipe emissions drive roadside concentrations.}
-  - {from: Air pollution, to: Respiratory hospital admissions, reason: Pollutant exposure triggers exacerbations.}
+  - from: Vehicle emissions
+    to: Air pollution
+    reason: Tailpipe emissions drive roadside concentrations.
+    sources: [hei2010]
+  - from: Air pollution
+    to: Respiratory hospital admissions
+    reason: Pollutant exposure triggers exacerbations.
+    sources: [who2021]
   - {from: Socioeconomic deprivation, to: Respiratory hospital admissions, reason: Deprivation raises baseline respiratory risk.}
   - {from: Socioeconomic deprivation, to: Traffic restrictions, reason: Zone boundaries and enforcement differ by area wealth.}
   - {from: Smoking prevalence, to: Respiratory hospital admissions, reason: Smoking is the dominant respiratory risk factor.}
