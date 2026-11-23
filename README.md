@@ -32,7 +32,7 @@ Stories are AI-written (plan → approve → write, with grounding checks). With
 provider key the story step is skipped:
 
 ```bash
-export ANTHROPIC_API_KEY=...          # or another provider latris supports
+export GEMINI_API_KEY=...             # or another provider latris supports
 ```
 
 Models marked `status: draft` in their manifest are skipped unless `--include-drafts`.
@@ -43,7 +43,7 @@ Models marked `status: draft` in their manifest are skipped unless `--include-dr
 (and on a `repository_dispatch: latris-release` ping), then commits the artifacts
 to `latris-site` under `examples/gallery/`, which GitHub Pages deploys. Secrets:
 
-- `ANTHROPIC_API_KEY` — story generation
+- `GEMINI_API_KEY` — story generation
 - `GALLERY_PAT` — a fine-grained token with read on `latris-app` (to install
   `latris_present`) and read/write on `latris-site` (to publish)
 
