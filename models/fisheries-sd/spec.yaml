@@ -1,23 +1,56 @@
-# Fishery under quota pressure — system dynamics stub (structure; dynamics TODO in build.py).
+# A fishery under quota pressure — system dynamics.
+# Two stocks — fish biomass and fishing effort — with the management loop
+# running through profitability: harvest → profit → effort adjustment →
+# effort → harvest, and the quota capping the legal harvest.
 context:
   background: The regional council sets the total allowable catch each year; the stock has declined twice in the last decade.
   audience: The regional fisheries council.
   intuition: The current quota is probably too high for a bad recruitment year.
 factors:
   - label: Fish biomass
+  - label: Outside the fishery
   - label: Recruitment
   - label: Natural mortality
   - label: Harvest
   - label: Quota
   - label: Fishing effort
   - label: Fleet profitability
+  - label: Effort adjustment
+  - label: Growth rate
+  - label: Carrying capacity
+  - label: Mortality rate
+  - label: Catchability
+  - label: Price
+  - label: Cost per vessel
+  - label: Adjustment rate
+  - label: Reference profit
 links:
-  - {from: Fish biomass, to: Recruitment, reason: Larger spawning stock produces more recruits.}
-  - {from: Fish biomass, to: Harvest, reason: Catch per unit effort rises with stock size.}
-  - {from: Quota, to: Harvest, reason: The quota caps the legal harvest.}
-  - {from: Quota, to: Fishing effort, reason: A generous quota sustains more vessels.}
+  - from: Fish biomass
+    to: Recruitment
+    reason: Larger spawning stock produces more recruits.
+    sources: [hilborn1992]
+  - from: Fish biomass
+    to: Harvest
+    reason: Catch per unit effort rises with stock size.
+  - from: Quota
+    to: Harvest
+    reason: The quota caps the legal harvest.
+    sources: [fao2024]
   - {from: Harvest, to: Fleet profitability, reason: Landings drive vessel revenue.}
-  - {from: Fleet profitability, to: Fishing effort, reason: Profits attract effort.}
+  - {from: Fishing effort, to: Fleet profitability, reason: Every vessel costs money to keep fishing.}
+  - from: Fishing effort
+    to: Harvest
+    reason: More vessels catch more, where the quota allows.
+  - {from: Fishing effort, to: Effort adjustment, reason: Entry and exit scale with the size of the fleet.}
+  - {from: Fleet profitability, to: Effort adjustment, reason: Profits attract vessels; losses drive them out.}
+  - {from: Growth rate, to: Recruitment, reason: The stock's intrinsic growth rate.}
+  - {from: Carrying capacity, to: Recruitment, reason: Recruitment falls as the stock nears its limit.}
+  - {from: Mortality rate, to: Natural mortality, reason: Background deaths outside the fishery.}
+  - {from: Catchability, to: Harvest, reason: How much stock one vessel catches in a year.}
+  - {from: Price, to: Fleet profitability, reason: Landed value per tonne.}
+  - {from: Cost per vessel, to: Fleet profitability, reason: Annual cost of keeping a vessel fishing.}
+  - {from: Adjustment rate, to: Effort adjustment, reason: How fast the fleet enters and exits.}
+  - {from: Reference profit, to: Effort adjustment, reason: The profit level effort adjusts toward.}
 sources:
   - key: fao2024
     title: The State of World Fisheries and Aquaculture 2024
