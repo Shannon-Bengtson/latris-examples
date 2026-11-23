@@ -1,4 +1,7 @@
-# EV subsidy in the regional transport system — fuzzy cognitive map stub (weights TODO in build.py).
+# EV subsidy in the regional transport system — fuzzy cognitive map.
+# Signed, weighted edges elicited from the departments (method per Gray
+# et al. 2015). One feedback loop: adoption → congestion → household
+# costs → adoption, which tempers uptake without reversing it.
 context:
   background: The regional council is debating an EV purchase subsidy; departments gave conflicting single-issue advice.
   audience: Regional councillors.
@@ -20,6 +23,13 @@ links:
   - {from: EV adoption, to: Congestion, reason: Subsidised vehicles add to total vehicle stock.}
   - {from: EV adoption, to: Household transport costs, reason: Running costs fall but purchase prices bind.}
   - {from: EV adoption, to: Electricity demand, reason: Charging adds to peak load.}
+  - from: Congestion
+    to: Household transport costs
+    reason: Time and fuel lost in traffic cost households money.
+    sources: [gray2015]
+  - from: Household transport costs
+    to: EV adoption
+    reason: High running costs push households toward cheaper-to-run vehicles.
 sources:
   - key: kosko1986
     title: Fuzzy Cognitive Maps
