@@ -1,4 +1,7 @@
-# Siting the new hospital — MCDA stub (weights and scores TODO in build.py).
+# Siting the new hospital — MCDA.
+# Three options, five criteria. Swing weights come from a board workshop
+# (method per the ISPOR good-practices report); scales are fixed explicitly
+# so adding an option later cannot shift the weights.
 context:
   background: Three sites remain for the new district hospital; the board must defend the choice publicly.
   audience: The hospital board.
@@ -10,6 +13,8 @@ factors:
   - label: Build cost
   - label: Travel time
   - label: Bed capacity
+  - label: Expansion potential
+  - label: Community acceptance
 links: []
 sources:
   - key: thokala2016

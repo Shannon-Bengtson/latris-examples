@@ -1,3 +1,7 @@
+# Does mentoring raise school completion? — theory of change.
+# A five-link results chain from training to completion, with process
+# tracing on each link and an impact estimate on register data for the
+# most proximal outcome (attendance).
 context:
   background: The foundation funds a school mentoring programme; renewal depends on whether the theory
     holds up.
@@ -20,6 +24,7 @@ links:
 - from: Students mentored
   to: School attendance
   reason: A trusted adult expecting you at school gets you there.
+  sources: [dubois2011]
 - from: School attendance
   to: Grades
   reason: Attendance is a precondition for learning.
