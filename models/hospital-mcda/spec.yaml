@@ -1,0 +1,23 @@
+# Siting the new hospital — MCDA stub (weights and scores TODO in build.py).
+context:
+  background: Three sites remain for the new district hospital; the board must defend the choice publicly.
+  audience: The hospital board.
+  intuition: The riverside site is beloved but expensive.
+factors:
+  - label: Riverside
+  - label: North Park
+  - label: Old Depot
+  - label: Build cost
+  - label: Travel time
+  - label: Bed capacity
+links: []
+sources:
+  - key: thokala2016
+    title: "Multiple Criteria Decision Analysis for Health Care Decision Making — ISPOR Good Practices"
+    authors: ["Thokala, P.", "Devlin, N.", "Marsh, K.", "et al."]
+    year: 2016
+    doi: 10.1016/j.jval.2015.12.003
+    extract: >-
+      Good practice recommends swing weighting over direct importance
+      weights, explicit scales for each criterion, and sensitivity analysis
+      on the weights before a decision is communicated.

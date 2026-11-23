@@ -1,0 +1,23 @@
+slug: hospital-mcda
+status: draft
+title: Siting the new hospital
+domain: Public sector
+formalisms: [mcda]
+question: >-
+  Which site should the new hospital go on?
+summary: >-
+  Three sites, five criteria, swing weights from a board workshop — and the weight at which the answer flips.
+report:
+  pack: publication
+  title: "Siting the new hospital"
+explorer:
+  model_type: mcda
+  title: "Siting the new hospital"
+  intro: ""
+story:
+  name: "For the board"
+  audience: "The hospital board, who must defend the choice publicly."
+  purpose: "Show the ranking, what it rests on, and how far the weights would have to move to change it."
+  voice: conversational
+  depth: standard
+  steer: "Lead with the ranking; the swing-weight sensitivity is the takeaway."

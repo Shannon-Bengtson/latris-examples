@@ -1,0 +1,29 @@
+context:
+  background: Monday 03:12, the finance VLAN shows unusual outbound traffic; the incident team must brief
+    the CISO by Friday.
+  audience: The CISO and incident review panel.
+  intuition: Probably a misconfigured backup job, but nobody wants to say so too early.
+factors:
+- label: Malicious exfiltration
+- label: Misconfigured backup job
+- label: Compromised vendor credential
+- label: Traffic began minutes after a scheduled backup change
+- label: Destination is a known cloud storage range
+- label: No lateral movement observed
+- label: Vendor reported a credential leak last month
+links: []
+sources:
+- key: heuer1999
+  title: Psychology of Intelligence Analysis
+  authors:
+  - Heuer, R.J.
+  year: 1999
+  url: https://www.cia.gov/static/1050fd8bc75f2e27a4a36f0ceb9ba0d3/Psychology-of-Intelligence-Analysis.pdf
+  extract: 'Analysis of competing hypotheses proceeds by disconfirmation: the analyst seeks evidence that
+    refutes hypotheses rather than evidence that confirms a favoured one.'
+- key: heuer2014
+  title: Structured Analytic Techniques for Intelligence Analysis
+  authors:
+  - Heuer, R.J.
+  - Pherson, R.H.
+  year: 2014

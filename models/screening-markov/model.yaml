@@ -1,0 +1,23 @@
+slug: screening-markov
+status: draft
+title: Is the screening programme worth its cost?
+domain: Health economics
+formalisms: [markov]
+question: >-
+  Is a national bowel-cancer screening programme cost-effective at the usual threshold?
+summary: >-
+  A Markov cohort over thirty years — costs, QALYs, the ICER, and the acceptability curve from a probabilistic sensitivity analysis.
+report:
+  pack: publication
+  title: "Is the screening programme worth its cost?"
+explorer:
+  model_type: markov
+  title: "Is the screening programme worth its cost?"
+  intro: ""
+story:
+  name: "For the funding agency"
+  audience: "The health technology assessment committee."
+  purpose: "Walk through the ICER, what drives it, and how likely the programme is cost-effective at their threshold."
+  voice: conversational
+  depth: standard
+  steer: "The acceptability curve is the answer to their actual question; build up to it."

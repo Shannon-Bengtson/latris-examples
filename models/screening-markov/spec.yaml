@@ -1,0 +1,45 @@
+context:
+  background: The HTA committee assesses a national screening programme against the usual cost-per-QALY
+    threshold.
+  audience: The health technology assessment committee.
+  intuition: Screening saves lives but the up-front cost is large and the benefit distant.
+factors:
+- label: Healthy
+- label: Undetected cancer
+- label: Detected cancer
+- label: Dead
+- label: Screening programme
+- label: No screening
+links:
+- from: Healthy
+  to: Undetected cancer
+  reason: Incidence in the unscreened cohort.
+- from: Undetected cancer
+  to: Detected cancer
+  reason: Screening or symptoms bring diagnosis.
+- from: Undetected cancer
+  to: Dead
+  reason: Late-stage mortality.
+- from: Detected cancer
+  to: Dead
+  reason: Earlier detection improves survival.
+sources:
+- key: mandel1993
+  title: Reducing Mortality from Colorectal Cancer by Screening for Fecal Occult Blood
+  authors:
+  - Mandel, J.S.
+  - Bond, J.H.
+  - Church, T.R.
+  - et al.
+  year: 1993
+  doi: 10.1056/NEJM199305133281901
+  extract: Annual fecal occult blood testing reduced 13-year cumulative mortality from colorectal cancer
+    by 33 percent in the Minnesota trial.
+- key: drummond2015
+  title: Methods for the Economic Evaluation of Health Care Programmes
+  authors:
+  - Drummond, M.F.
+  - Sculpher, M.J.
+  - Claxton, K.
+  - et al.
+  year: 2015

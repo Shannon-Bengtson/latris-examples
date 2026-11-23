@@ -1,0 +1,23 @@
+slug: intrusion-ach
+status: draft
+title: Unusual activity on the network
+domain: Security
+formalisms: [ach]
+question: >-
+  What explains the unusual outbound traffic on the finance VLAN?
+summary: >-
+  Three hypotheses, eight pieces of evidence, and the matrix that shows which hypothesis the evidence fails to rule out.
+report:
+  pack: publication
+  title: "Unusual activity on the network"
+explorer:
+  model_type: ach
+  title: "Unusual activity on the network"
+  intro: ""
+story:
+  name: "For the incident review"
+  audience: "The CISO and the incident review panel."
+  purpose: "Show why the team ruled out an attack — and which evidence the conclusion rests on."
+  voice: conversational
+  depth: standard
+  steer: "The linchpin evidence items are the point: name what to verify first."
