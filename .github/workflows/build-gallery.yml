@@ -1,0 +1,55 @@
+name: Build and publish gallery
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [latris-release]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install latris
+        run: pip install -r requirements.txt
+
+      - name: Install latris_present (private app repo)
+        run: |
+          pip install "git+https://x-access-token:${{ secrets.GALLERY_PAT }}@github.com/Shannon-Bengtson/latris-app.git@$(cat latris-app-ref.txt)"
+
+      - name: Build the gallery
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GIT_AUTHOR_NAME: latris-examples
+          GIT_AUTHOR_EMAIL: examples@latris.app
+          GIT_COMMITTER_NAME: latris-examples
+          GIT_COMMITTER_EMAIL: examples@latris.app
+        run: python tools/build_all.py --out dist
+
+      - name: Publish to latris-site
+        env:
+          GALLERY_PAT: ${{ secrets.GALLERY_PAT }}
+        run: |
+          git clone --depth 1 "https://x-access-token:${GALLERY_PAT}@github.com/Shannon-Bengtson/latris-site.git" site
+          mkdir -p site/examples/gallery
+          rsync -a --delete dist/ site/examples/gallery/
+          cd site
+          git config user.name "latris-examples bot"
+          git config user.email "examples@latris.app"
+          git add examples/gallery
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+          else
+            git commit -m "Rebuild examples gallery ($(date -u +%Y-%m-%d))"
+            git push
+          fi
