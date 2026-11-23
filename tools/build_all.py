@@ -12,10 +12,11 @@ For each ``models/<slug>/`` this pipeline:
    - ``dist/<slug>/explorer.html`` — the interactive explorer (explorer_html)
    - ``dist/<slug>/story.html``    — the scrollytelling story (story_html)
 
-5. writes ``dist/gallery.json`` — the index latris-site consumes.
+5. writes ``dist/gallery.json`` and copies ``site/index.html`` to
+   ``dist/index.html`` — the gallery page latris-site serves.
 
 Stories are AI-written (plan -> approve -> write). Without a provider key the
-story step is skipped with a warning; set ANTHROPIC_API_KEY to enable it.
+story step is skipped with a warning; set GEMINI_API_KEY to enable it.
 
 Usage:
     python tools/build_all.py                     # every live model
@@ -57,8 +58,7 @@ def have_present() -> bool:
 
 
 def have_ai_key() -> bool:
-    return any(os.environ.get(k) for k in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY")) \
-        or os.environ.get("LATRIS_AI_MOCK") == "1"
+    return any(os.environ.get(k) for k in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY"))         or os.environ.get("LATRIS_AI_MOCK") == "1"
 
 
 def latris_cli(root: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess:
@@ -216,6 +216,13 @@ def main() -> int:
         "models": entries,
     }
     (dist / "gallery.json").write_text(json.dumps(index, indent=2) + "\n", encoding="utf-8")
+
+    # The gallery index page: static, renders gallery.json client-side, so
+    # every republish picks up new or updated models with no hand edits.
+    site_index = REPO / "site" / "index.html"
+    if site_index.exists():
+        shutil.copy2(site_index, dist / "index.html")
+
     print(f"\ngallery.json: {len(entries)} model(s)" + (f", {len(failures)} FAILED: {failures}" if failures else ""))
     return 1 if failures else 0
 
