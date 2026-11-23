@@ -1,3 +1,7 @@
+# Launch, license, or do nothing — decision tree.
+# One decision, one shared uncertainty (demand) repeated under each choice,
+# terminal payoffs in $k. The two demand chance nodes carry the same
+# uncertainty name so the value of information is priced once, for both.
 context:
   background: The product works in trials; the committee must commit to launch, license, or shelve by
     quarter end.
@@ -12,7 +16,28 @@ factors:
 - label: Licensed, high demand
 - label: Licensed, low demand
 - label: Do nothing
-links: []
+links:
+- from: Strategy
+  to: Demand if launched
+  reason: If we launch ourselves, demand is what we face.
+- from: Strategy
+  to: Demand if licensed
+  reason: If we license, the licensee faces the same demand.
+- from: Strategy
+  to: Do nothing
+  reason: Shelve the product; walk away.
+- from: Demand if launched
+  to: Launched, high demand
+  reason: The upside we keep for ourselves.
+- from: Demand if launched
+  to: Launched, low demand
+  reason: "The downside: launch costs unrecovered."
+- from: Demand if licensed
+  to: Licensed, high demand
+  reason: Royalties follow demand.
+- from: Demand if licensed
+  to: Licensed, low demand
+  reason: The royalty floor protects us.
 sources:
 - key: clemen2013
   title: Making Hard Decisions with DecisionTools

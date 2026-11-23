@@ -1,3 +1,6 @@
+# Bowel-cancer screening — Markov cohort.
+# Four health states, two strategies; transitions and rewards differ where
+# screening changes the course of disease (earlier detection, better survival).
 context:
   background: The HTA committee assesses a national screening programme against the usual cost-per-QALY
     threshold.
@@ -23,6 +26,7 @@ links:
 - from: Detected cancer
   to: Dead
   reason: Earlier detection improves survival.
+  sources: [mandel1993]
 sources:
 - key: mandel1993
   title: Reducing Mortality from Colorectal Cancer by Screening for Fecal Occult Blood

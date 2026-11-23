@@ -1,4 +1,8 @@
-# Loss of cooling at the data centre — fault tree stub (gates and probabilities TODO in build.py).
+# Loss of cooling at the data centre — fault tree.
+# Structure: an OR under the top event (double pump failure OR a shared
+# control fault), an AND for the two pumps, and a 2-out-of-3 vote gate on
+# the power supplies that feed BOTH pumps — the common cause the redundancy
+# does not protect against.
 context:
   background: Uptime targets are contractual; the operations director is reviewing resilience spend for next year.
   audience: The data centre's operations director.
@@ -15,7 +19,42 @@ factors:
   - label: Supply 2 fails
   - label: Supply 3 fails
   - label: Control fault
-links: []
+links:
+  - from: Both pumps fail
+    to: Loss of cooling
+    reason: With no pump circulating coolant, cooling is lost.
+    sources: [nasa2002]
+  - from: Control fault
+    to: Loss of cooling
+    reason: The shared controller can stop both pumps at once.
+  - from: Pump A fails
+    to: Both pumps fail
+    reason: One side of the redundant pair.
+  - from: Pump B fails
+    to: Both pumps fail
+    reason: The other side of the redundant pair.
+  - from: Pump A mechanical failure
+    to: Pump A fails
+    reason: An internal fault in pump A.
+  - from: Power lost
+    to: Pump A fails
+    reason: Pump A loses its power supply — a cause shared with pump B.
+  - from: Pump B mechanical failure
+    to: Pump B fails
+    reason: An internal fault in pump B.
+  - from: Power lost
+    to: Pump B fails
+    reason: Pump B loses the same shared power supply.
+  - from: Supply 1 fails
+    to: Power lost
+    reason: One of three supplies; any two can carry the load.
+    sources: [iec61025]
+  - from: Supply 2 fails
+    to: Power lost
+    reason: One of three supplies; any two can carry the load.
+  - from: Supply 3 fails
+    to: Power lost
+    reason: One of three supplies; any two can carry the load.
 sources:
   - key: nasa2002
     title: Fault Tree Handbook with Aerospace Applications
@@ -35,3 +74,11 @@ sources:
     extract: >-
       The standard defines fault tree symbols, gates including voting
       (k-out-of-n) gates, and requirements for quantitative evaluation.
+  - key: oreda2015
+    title: OREDA — Offshore and Onshore Reliability Data Handbook, Volume 1 — Topside Equipment
+    authors: ["OREDA Participants"]
+    year: 2015
+  - key: ieee493
+    title: IEEE Recommended Practice for the Design of Reliable Industrial and Commercial Power Systems
+    authors: ["IEEE"]
+    year: 2007
