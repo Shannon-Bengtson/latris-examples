@@ -20,3 +20,15 @@ and pushes the result to latris-site, which publishes it to latris.app. Work on
 a branch and open a pull request; don't push or merge to `main` until the
 founder says to. After a latris release, bumping `requirements.txt` is a pull
 request too.
+
+## This repo is public
+
+Everything here is public: on GitHub, and the gallery on latris.app. Never add business or sensitive information: go-to-market or growth
+strategy, pricing, revenue, customers, sales conversations or trial
+participants, competitive positioning, the founder's personal or admin
+details, internal infrastructure (server addresses, how deploys reach them,
+where secrets are kept), secrets or tokens, or the private app's code and
+internal plans.
+Those live in the private app repo. If a change seems to need them, write only
+the engineering or user-facing part, or ask the founder. Commit messages and
+pull-request text are public too.
