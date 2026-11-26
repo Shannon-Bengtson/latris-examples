@@ -13,6 +13,11 @@ Notes for AI coding agents working in this repository. Start at
 - **latris-site** (public): CI commits the built gallery into its
   `examples/gallery/`, and GitHub Pages serves it at latris.app.
 
+## Open work lives in GitHub issues
+
+To-dos and bugs for this repo are its GitHub issues (public: engineering and
+content only, see below). Don't keep to-do lists in Markdown here.
+
 ## Publishing is the founder's call
 
 A push or merge to `main` runs `build-gallery.yml`, which rebuilds every model
