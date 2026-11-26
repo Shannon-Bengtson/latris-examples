@@ -47,7 +47,7 @@ to `latris-site` under `examples/gallery/`, which GitHub Pages deploys. Secrets:
 - `GALLERY_PAT` — a fine-grained token with read on `latris-app` (to install
   `latris_present`) and read/write on `latris-site` (to publish)
 
-After a latris release: bump `requirements.txt`, push, done — the gallery rebuilds.
+After a latris release: bump `requirements.txt` in a pull request; merging it rebuilds the gallery.
 
 ## The models
 
